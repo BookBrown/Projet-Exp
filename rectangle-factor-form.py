@@ -1,5 +1,5 @@
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 def I(qx,qy,a,b):
@@ -15,3 +15,4 @@ qqx,qqy=np.meshgrid(qx,qy)
 plt.pcolormesh(qx,qy,I(qqx,qqy,a,b))
 plt.colorbar()
 plt.show()
+
