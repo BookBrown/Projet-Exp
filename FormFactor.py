@@ -40,7 +40,8 @@ def calcul_I_point(som1,som2,q):
 
 def spectre_poly(Som1,Som2,dqx,dqy):
     """Som1,2 : array : tableau contenant les coordonnées des sommets des polygones
-     dqx,y : integer : taille sur laquelle on calcule le spectre en x et y"""
+     dqx,y : integer : taille sur laquelle on calcule le spectre en x et y
+     RETOURNE : le spectre de l'intensité"""
     
     Qx=np.linspace(-dqx,dqx,500)
     Qy=np.linspace(-dqy,dqy,500)
