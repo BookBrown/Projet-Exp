@@ -8,7 +8,7 @@ def I(qx,qy,a,b):
 qx=np.linspace(-10,10,1000)
 qy=np.linspace(-10,10,1000)
 
-a=5
+a=3
 b=5
       
 qqx,qqy=np.meshgrid(qx,qy)
