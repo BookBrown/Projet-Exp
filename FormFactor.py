@@ -28,3 +28,29 @@ def FormFactor(q,Som):
         s+=(qx*ey-qy*ex)*(np.sinc((qx*ex+qy*ey)/np.pi)*np.exp(1j*(qx*rx+qy*ry))-c)
         
     return(2*s/(1j*(qx*qx+qy*qy)))
+
+def calcul_I_point(som1,som2,q):
+    """som1 : array : tableau contenant les coordonnées des sommets du premier polygone
+    som2 : array : tableau contenant les coordonnées des sommets du second polygone
+    q : liste : contenant qx et qy du point
+    RETOURNE : le calcul de l'intensité en q """
+    A1,A2=FormFactor(q,som1),FormFactor(q,som2)
+    I=np.abs(A1**2+A2**2)
+    return I 
+
+def spectre_poly(Som1,Som2,dqx,dqy):
+    """Som1,2 : array : tableau contenant les coordonnées des sommets des polygones
+     dqx,y : integer : taille sur laquelle on calcule le spectre en x et y"""
+    
+    Qx=np.linspace(-dqx,dqx,500)
+    Qy=np.linspace(-dqy,dqy,500)
+
+    qqx,qqy=np.meshgrid(Qx,Qy)
+
+    plt.pcolormesh(Qx,Qy,np.log(calcul_I_point(Som1,Som2,[qqx,qqy])),shading='auto')
+    plt.colorbar()
+    plt.xlabel('qx')
+    plt.ylabel('qy')
+    plt.title("Représentation du log de l'intensité diffusée")
+    plt.show()
+
