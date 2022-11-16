@@ -35,7 +35,7 @@ def calcul_I_point(som1,som2,q):
     q : liste : contenant qx et qy du point
     RETOURNE : le calcul de l'intensité en q """
     A1,A2=FormFactor(q,som1),FormFactor(q,som2)
-    I=np.abs(A1**2+A2**2)
+    I=(np.abs(A1+A2))**2
     return I 
 
 def spectre_poly(Som1,Som2,dqx,dqy):
